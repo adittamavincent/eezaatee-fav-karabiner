@@ -4,16 +4,24 @@ Personal Karabiner-Elements configuration file (`karabiner.json`) optimized for 
 
 ## Features
 
-- **Right Command VIM Layer**: Use `Right Command` held down as a modifier layer for VIM navigation:
-  - `Right Cmd + H` → Left Arrow
-  - `Right Cmd + J` → Down Arrow
-  - `Right Cmd + K` → Up Arrow
-  - `Right Cmd + L` → Right Arrow
-- **VIM Navigation Shortcuts**:
-  - `Right Cmd + Left Cmd + H` → `Ctrl + A` (Beginning of line)
-  - `Right Cmd + Left Cmd + L` → `Ctrl + E` (End of line)
-  - `Right Cmd + Left Cmd + J` → `Cmd + Down` (Bottom of document)
-  - `Right Cmd + Left Cmd + K` → `Cmd + Up` (Top of document)
+- **Semicolon (`;`) Dual-Role Key**:
+  - **Tap (press & release)**: Types `;` normally (or `:` with Shift).
+  - **Hold down**: Activates the VIM navigation layer.
+- **VIM Arrow Keys** (Hold `;`):
+  - `; + H` → Left Arrow
+  - `; + J` → Down Arrow
+  - `; + K` → Up Arrow
+  - `; + L` → Right Arrow
+- **Natural macOS Modifiers Support**:
+  - **Home / End**: `; + Cmd + H` (Line Start) & `; + Cmd + L` (Line End)
+  - **Top / Bottom**: `; + Cmd + K` (Document Top) & `; + Cmd + J` (Document Bottom)
+  - **Word Navigation**: `; + Option + H` (Previous Word) & `; + Option + L` (Next Word)
+  - **Paragraph Navigation**: `; + Option + K` (Previous Paragraph) & `; + Option + J` (Next Paragraph)
+  - **Text Selection**: Combine any of the above with `Shift` (e.g. `; + Shift + HJKL`, `; + Cmd + Shift + H/L`)
+- **Full Standard Command Key Compatibility**:
+  - Both Left Command and Right Command remain 100% untouched for standard macOS and app shortcuts (e.g. `Cmd + J`, `Cmd + C`, `Cmd + V`, etc.).
+- **Hyper Key**:
+  - `Caps Lock` → `Cmd + Ctrl + Option + Shift`
 
 ## Installation
 

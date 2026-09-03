@@ -9,115 +9,95 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Right Command VIM layer with full modifier control",
+                        "description": "Unify Left Command → Right Command (so both Cmd keys behave identically)",
                         "manipulators": [
                             {
-                                "description": "Right Cmd → activate VIM layer",
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    { "set_variable": { "name": "vim_arrows", "value": 1 } }
-                                ],
-                                "to_after_key_up": [
-                                    { "set_variable": { "name": "vim_arrows", "value": 0 } }
-                                ],
-                                "to_if_alone": [
-                                    { "key_code": "right_command" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Left Cmd (while VIM layer) → consume and set cmd flag",
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 }
-                                ],
+                                "description": "left_command → right_command",
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [
-                                    { "set_variable": { "name": "vim_cmd", "value": 1 } }
+                                    { "key_code": "right_command" }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Semicolon (;) VIM navigation layer (tap=';', hold=arrow layer)",
+                        "manipulators": [
+                            {
+                                "description": "; + H → Left Arrow",
+                                "conditions": [
+                                    { "type": "variable_if", "name": "semicolon_nav", "value": 1 }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    { "key_code": "left_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "; + J → Down Arrow",
+                                "conditions": [
+                                    { "type": "variable_if", "name": "semicolon_nav", "value": 1 }
+                                ],
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    { "key_code": "down_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "; + K → Up Arrow",
+                                "conditions": [
+                                    { "type": "variable_if", "name": "semicolon_nav", "value": 1 }
+                                ],
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    { "key_code": "up_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "; + L → Right Arrow",
+                                "conditions": [
+                                    { "type": "variable_if", "name": "semicolon_nav", "value": 1 }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    { "key_code": "right_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Semicolon layer trigger (tap=';', hold=VIM layer)",
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    { "set_variable": { "name": "semicolon_nav", "value": 1 } }
                                 ],
                                 "to_after_key_up": [
-                                    { "set_variable": { "name": "vim_cmd", "value": 0 } }
+                                    { "set_variable": { "name": "semicolon_nav", "value": 0 } }
                                 ],
-                                "type": "basic"
-                            },
-
-                            {
-                                "description": "VIM+Cmd+H → Ctrl+A (beginning of line)",
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 },
-                                    { "type": "variable_if", "name": "vim_cmd", "value": 1 }
+                                "to_if_alone": [
+                                    { "key_code": "semicolon" }
                                 ],
-                                "from": { "key_code": "h", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "a", "modifiers": ["left_control"] }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "VIM+Cmd+L → Ctrl+E (end of line)",
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 },
-                                    { "type": "variable_if", "name": "vim_cmd", "value": 1 }
-                                ],
-                                "from": { "key_code": "l", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "e", "modifiers": ["left_control"] }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "VIM+Cmd+J → Cmd+Down (bottom of document)",
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 },
-                                    { "type": "variable_if", "name": "vim_cmd", "value": 1 }
-                                ],
-                                "from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "down_arrow", "modifiers": ["left_command"] }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "VIM+Cmd+K → Cmd+Up (top of document)",
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 },
-                                    { "type": "variable_if", "name": "vim_cmd", "value": 1 }
-                                ],
-                                "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "up_arrow", "modifiers": ["left_command"] }],
-                                "type": "basic"
-                            },
-
-                            {
-                                "description": "VIM arrows with modifier passthrough",
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 }
-                                ],
-                                "from": { "key_code": "h", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "left_arrow" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 }
-                                ],
-                                "from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "down_arrow" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 }
-                                ],
-                                "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "up_arrow" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    { "type": "variable_if", "name": "vim_arrows", "value": 1 }
-                                ],
-                                "from": { "key_code": "l", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "right_arrow" }],
                                 "type": "basic"
                             }
                         ]
@@ -133,7 +113,7 @@
                                 "to": [
                                     {
                                         "key_code": "left_shift",
-                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                        "modifiers": ["left_command", "left_control", "left_option", "caps_lock"]
                                     }
                                 ],
                                 "type": "basic"
