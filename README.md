@@ -20,8 +20,6 @@ Personal Karabiner-Elements configuration file (`karabiner.json`) optimized for 
   - **Text Selection**: Combine any of the above with `Shift` (e.g. `; + Shift + HJKL`, `; + Cmd + Shift + H/L`)
 - **Full Standard Command Key Compatibility**:
   - Both Left Command and Right Command remain 100% untouched for standard macOS and app shortcuts (e.g. `Cmd + J`, `Cmd + C`, `Cmd + V`, etc.).
-- **Hyper Key**:
-  - `Caps Lock` → `Cmd + Ctrl + Option + Shift`
 
 ## Installation
 

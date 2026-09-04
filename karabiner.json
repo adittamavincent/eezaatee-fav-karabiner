@@ -101,42 +101,6 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                        "description": "Caps Lock → Hyper Key (OFF→Hyper, ON→toggle off)",
-                        "manipulators": [
-                            {
-                                "description": "When caps_lock is OFF: send Hyper (Cmd+Ctrl+Opt+Shift)",
-                                "conditions": [
-                                    { "type": "variable_if", "name": "caps_lock", "value": 0 }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "modifiers": ["left_command", "left_control", "left_option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "When caps_lock is ON: toggle it off",
-                                "conditions": [
-                                    { "type": "variable_if", "name": "caps_lock", "value": 1 }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    { "key_code": "caps_lock" }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
                     }
                 ]
             },
