@@ -9,22 +9,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Unify Left Command → Right Command (so both Cmd keys behave identically)",
-                        "manipulators": [
-                            {
-                                "description": "left_command → right_command",
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    { "key_code": "right_command" }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Semicolon (;) VIM navigation layer (tap=';', hold=arrow layer)",
                         "manipulators": [
                             {

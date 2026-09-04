@@ -18,8 +18,6 @@ Personal Karabiner-Elements configuration file (`karabiner.json`) optimized for 
   - **Word Navigation**: `; + Option + H` (Previous Word) & `; + Option + L` (Next Word)
   - **Paragraph Navigation**: `; + Option + K` (Previous Paragraph) & `; + Option + J` (Next Paragraph)
   - **Text Selection**: Combine any of the above with `Shift` (e.g. `; + Shift + HJKL`, `; + Cmd + Shift + H/L`)
-- **Full Standard Command Key Compatibility**:
-  - Both Left Command and Right Command remain 100% untouched for standard macOS and app shortcuts (e.g. `Cmd + J`, `Cmd + C`, `Cmd + V`, etc.).
 
 ## Installation
 
