@@ -9,18 +9,13 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Semicolon VIM layer \u2014 full modifier matrix",
+                        "description": "Semicolon VIM layer — hjio arrows with native modifier propagation",
                         "manipulators": [
                             {
-                                "description": "; (hold) \u2192 activate vim_layer / (tap) \u2192 ;",
+                                "description": "; (hold) → activate vim_layer / (tap) → ;",
                                 "type": "basic",
                                 "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
+                                    "key_code": "semicolon"
                                 },
                                 "to": [
                                     {
@@ -48,207 +43,7 @@
                                 }
                             },
                             {
-                                "description": "left_command \u2192 lazy left_command while vim_layer is active",
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "vim_layer",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command",
-                                        "lazy": true
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "right_command \u2192 lazy right_command while vim_layer is active",
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "vim_layer",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_command",
-                                        "lazy": true
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "left_option \u2192 lazy left_option while vim_layer is active",
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "vim_layer",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "left_option",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_option",
-                                        "lazy": true
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "right_option \u2192 lazy right_option while vim_layer is active",
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "vim_layer",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_option",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_option",
-                                        "lazy": true
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "left_control \u2192 lazy left_control while vim_layer is active",
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "vim_layer",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "left_control",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control",
-                                        "lazy": true
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "right_control \u2192 lazy right_control while vim_layer is active",
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "vim_layer",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_control",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_control",
-                                        "lazy": true
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "left_shift \u2192 lazy left_shift while vim_layer is active",
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "vim_layer",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "left_shift",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "lazy": true
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "right_shift \u2192 lazy right_shift while vim_layer is active",
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "vim_layer",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_shift",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_shift",
-                                        "lazy": true
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "h \u2192 left_arrow while vim_layer is active (inherit lazy modifiers)",
+                                "description": "h → left_arrow while vim_layer is active; preserve physical modifiers",
                                 "type": "basic",
                                 "conditions": [
                                     {
@@ -272,7 +67,7 @@
                                 ]
                             },
                             {
-                                "description": "j \u2192 down_arrow while vim_layer is active (inherit lazy modifiers)",
+                                "description": "j → down_arrow while vim_layer is active; preserve physical modifiers",
                                 "type": "basic",
                                 "conditions": [
                                     {
@@ -296,7 +91,7 @@
                                 ]
                             },
                             {
-                                "description": "k \u2192 up_arrow while vim_layer is active (inherit lazy modifiers)",
+                                "description": "i → up_arrow while vim_layer is active; preserve physical modifiers",
                                 "type": "basic",
                                 "conditions": [
                                     {
@@ -306,7 +101,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "k",
+                                    "key_code": "i",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -320,7 +115,7 @@
                                 ]
                             },
                             {
-                                "description": "l \u2192 right_arrow while vim_layer is active (inherit lazy modifiers)",
+                                "description": "o → right_arrow while vim_layer is active; preserve physical modifiers",
                                 "type": "basic",
                                 "conditions": [
                                     {
@@ -330,7 +125,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "o",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -340,6 +135,29 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow"
+                                    }
+                                ]
+                            },
+                            {
+                                "description": "Command + I → Command + Up Arrow (top of page)",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "command"
+                                        ]
                                     }
                                 ]
                             }
